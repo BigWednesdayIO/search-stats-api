@@ -6,25 +6,52 @@
     },
     "basePath": "/1",
     "paths": {
-    },
-    "definitions": {
-        "Error": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string",
-                    "description": "A message explaining the error"
+        "/stats/query_count": {
+            "get": {
+                "description": "Gets search query counts",
+                "responses": {
+                    "200": {
+                        "description": "An object containing search query counts",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "counts": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "count": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
-                "error": {
-                    "type": "string",
-                    "description": "An error message"
-                },
-                "statusCode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "An HTTP status code"
-                }
+                "parameters": [
+                    {
+                        "name": "time_unit",
+                        "in": "query",
+                        "required": true,
+                        "description": "Time unit for count buckets",
+                        "type": "string",
+                        "enum": ["days"]
+                    },
+                    {
+                        "name": "buckets",
+                        "in": "query",
+                        "required": true,
+                        "description": "Number of buckets",
+                        "type": "integer"
+                    }
+                ]
             }
         }
-    }
+    },
+    "definitions": {}
 }
