@@ -1,0 +1,30 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Search Statistics API"
+    },
+    "basePath": "/1",
+    "paths": {
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "description": "A message explaining the error"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "An error message"
+                },
+                "statusCode": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "An HTTP status code"
+                }
+            }
+        }
+    }
+}

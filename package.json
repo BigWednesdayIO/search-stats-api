@@ -1,0 +1,41 @@
+{
+  "name": "search-stats-api",
+  "version": "0.0.1",
+  "description": "bigwednesday.io search stats api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BigWednesdayIO/search-stats-api.git"
+  },
+  "author": "bigwednesday.io",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/BigWednesdayIO/search-stats-api/issues"
+  },
+  "homepage": "https://github.com/BigWednesdayIO/search-stats-api",
+  "dependencies": {
+    "elasticsearch": "^8.0.1",
+    "hapi": "^9.3.0",
+    "swaggerize-hapi": "BigWednesdayIO/swaggerize-hapi"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.2",
+    "chai": "^3.2.0",
+    "eslint": "^1.3.1",
+    "eslint-config-xo-space": "^0.4.0",
+    "eslint-plugin-babel": "^2.1.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-eslint": "^17.1.0",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-retire": "^0.3.10",
+    "grunt-shell": "^1.1.2",
+    "load-grunt-tasks": "^3.2.0",
+    "mocha": "^2.3.1"
+  }
+}
