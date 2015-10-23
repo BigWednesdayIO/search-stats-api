@@ -11,4 +11,8 @@ ADD clean.sh /src/
 
 RUN chmod 0600 /etc/cron.d/crontab && chmod a+x /src/clean.sh
 
+ENV ELASTICSEARCH_HOST=localhost
+ENV ELASTICSEARCH_PORT=9200
+ENV ELASTICSEARCH_AUTH=user:password
+
 CMD rsyslogd && env > /root/.env && cron -L 15 && tail -f /var/log/syslog /var/log/curator.log
