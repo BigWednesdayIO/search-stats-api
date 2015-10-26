@@ -1,12 +1,35 @@
 machine:
-  services:
-    - docker
+  python:
+    version: 2.7.3
+  # services:
+  #   - docker
+
+checkout:
+  post:
+    - git submodule update --init
 
 dependencies:
+  cache_directories:
+    - ~/google-cloud-sdk
   override:
-    - docker info
-    - docker build -t search-stats-api .
+    - scripts/ensure_glcoud_installed.sh
+
+# dependencies:
+#   override:
+#     - docker info
+#     - docker build -t search-stats-api .
 
 test:
   override:
-    - docker run -w "/src" search-stats-api /bin/bash -c "grunt ci";
+    # - docker run -w "/src" search-stats-api /bin/bash -c "grunt ci";
+    - echo pass
+
+deployment:
+  dev:
+    branch: master
+    commands:
+      - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner development ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
+  prod:
+    branch: production
+    commands:
+      - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner production ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
