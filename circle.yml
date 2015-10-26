@@ -1,8 +1,8 @@
 machine:
   python:
     version: 2.7.3
-  # services:
-  #   - docker
+  services:
+    - docker
 
 checkout:
   post:
@@ -14,15 +14,14 @@ dependencies:
   override:
     - scripts/ensure_glcoud_installed.sh
 
-# dependencies:
-#   override:
-#     - docker info
-#     - docker build -t search-stats-api .
+dependencies:
+  override:
+    - docker info
+    - docker build -t search-stats-api .
 
 test:
   override:
-    # - docker run -w "/src" search-stats-api /bin/bash -c "grunt ci";
-    - echo pass
+    - docker run -w "/src" search-stats-api /bin/bash -c "grunt ci";
 
 deployment:
   dev:
