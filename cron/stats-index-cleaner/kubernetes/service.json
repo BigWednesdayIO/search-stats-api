@@ -12,6 +12,10 @@
         "selector": {
             "app": "stats-index-cleaner",
             "env": "{{NAMESPACE}}"
-        }
+        },
+        "clusterIP": "None",
+        "ports": [
+            {"port": 80}
+        ]
     }
 }
