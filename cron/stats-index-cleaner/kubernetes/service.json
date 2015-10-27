@@ -1,0 +1,21 @@
+{
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+        "name": "stats-index-cleaner-svc",
+        "labels": {
+            "app": "stats-index-cleaner",
+            "env": "{{NAMESPACE}}"
+        }
+    },
+    "spec": {
+        "selector": {
+            "app": "stats-index-cleaner",
+            "env": "{{NAMESPACE}}"
+        },
+        "clusterIP": "None",
+        "ports": [
+            {"port": 80}
+        ]
+    }
+}
