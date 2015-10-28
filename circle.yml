@@ -13,9 +13,6 @@ dependencies:
     - ~/google-cloud-sdk
   override:
     - scripts/ensure_glcoud_installed.sh
-
-dependencies:
-  override:
     - docker info
     - docker build -t search-stats-api .
 
