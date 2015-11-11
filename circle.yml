@@ -20,12 +20,12 @@ test:
   override:
     - docker run -w "/src" search-stats-api /bin/bash -c "grunt ci";
 
-deployment:
-  # dev:
-  #   branch: master
-  #   commands:
-  #     - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner development ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
-  prod:
-    branch: production
-    commands:
-      - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner production ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
+# deployment:
+#   dev:
+#     branch: master
+#     commands:
+#       - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner development ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
+#   prod:
+#     branch: production
+#     commands:
+#       - scripts/rolling_deploy.sh stats-index-cleaner app=stats-index-cleaner production ${PWD}/cron/stats-index-cleaner ${PWD}/cron/stats-index-cleaner/kubernetes/rc.json
