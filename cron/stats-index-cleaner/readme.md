@@ -47,7 +47,7 @@ Cron job to automatically snapshot and remove old stats indexes from Elasticsear
  gcloud docker push ${QUALIFIED_IMAGE_NAME}
 
  # Peform a rolling update on the replication controller
- OLD_RC=$(~/google-cloud-sdk/bin/kubectl get rc -l "app=nginx" --namespace=${NAMESPACE} -o template --template="{{(index .items 0).metadata.name}}")
+ OLD_RC=$(~/google-cloud-sdk/bin/kubectl get rc -l "app=stats-index-cleaner" --namespace=${NAMESPACE} -o template --template="{{(index .items 0).metadata.name}}")
 
  export REPLICAS=$(~/google-cloud-sdk/bin/kubectl get rc ${OLD_RC} --namespace=${NAMESPACE} -o template --template="{{.spec.replicas}}")
 
